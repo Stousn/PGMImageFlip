@@ -62,7 +62,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
     fread(image->data, binarysize, 1, stream);
 
     #ifdef DEBUG
-      printf("Struct filled with:\n", );
+      printf("Struct filled with:\n");
       printf("Type: '%s'\n", image->type);
       printf("Width: '%d' Height: '%d'\n", image->width, image->height);
       printf("Data: '%s'\n", image->data);

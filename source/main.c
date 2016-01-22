@@ -8,6 +8,7 @@
 /**
 *  @brief Command line parsing, File handles
 *  @param Usage: flip <Path of input file> <Path of output file>
+*  Current Problem: First pixel is to much. It shifts every pixel for one place to the right.
 */
 int main(int argc, char const *argv[]) {
   //Variables

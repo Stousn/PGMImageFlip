@@ -79,20 +79,28 @@ int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   size_t binarysize = (img->width * img->height) + 1;
   char hw[10];//sizeof(img->height) + sizeof(img->width) + sizeof(char)*2];
   char type[4];
-  char comments[24] = "#by Stefan Reip, ITM14!\n";
+  char comments[24] = "#by Stefan Reip, ITM14!";
   char maxval[4] = "255\n";
   //Adds missing \n
   sprintf(type, "%s\n", img->type);
   sprintf(hw, "%d %d\n", img->height, img->width);
 
+
+  char* bits = "255\n";
+
+  	//Writes params into File
+  	fprintf(targetStream, "%s%s\n%d %d\n", img->type, comments, img->width, img->height);
+  	fwrite(bits, sizeof(char), strlen(bits),targetStream);
+  	fwrite(img->data, sizeof(char), binarysize, targetStream);
+
   //Writes to output file
-  fwrite(type, 1, sizeof(type)-1, targetStream);
+  /*fwrite(type, 1, sizeof(type)-1, targetStream);
   fwrite(comments, 1, sizeof(comments), targetStream);
   //printf(" Hallo >>%s<<\n", hw);
   fwrite(hw, 1, sizeof(hw)-2 , targetStream);
   fwrite(maxval, 1, sizeof(maxval)-1, targetStream);
   fwrite(img->data+1, 1, binarysize, targetStream);
-
+*/
   /*
   fwrite(type,1,sizeof(type)-1,targetStream);
   	fwrite(comment,1,sizeof(comment),targetStream);

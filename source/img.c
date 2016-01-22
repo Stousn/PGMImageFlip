@@ -29,7 +29,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
 
   //Error if type is wrong
   if(strcmp(type, PBM_TYPE_P5) != 0){
-    error* = RET_UNSUPPORTED_FILE_FORMAT;
+    *error = RET_UNSUPPORTED_FILE_FORMAT;
     return NULL;
   }
 
@@ -46,7 +46,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
     printf("String Compare = %d\n", strcmp(type, PBM_TYPE_P5));
   #endif
 
-    error = RET_OUT_OF_MEMORY;
+    *error = RET_OUT_OF_MEMORY;
     //allocation of PbmImage struct
     PbmImage* image = malloc (sizeof (PbmImage));
     strcpy(image->type, PBM_TYPE_P5); //set type
@@ -68,7 +68,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
       printf("Data: '%s'\n", image->data);
     #endif
 
-    error = RET_PBM_OK;
+    *error = RET_PBM_OK;
     return image;
 }
 

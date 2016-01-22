@@ -59,6 +59,8 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
     size_t binarysize = (image->width * image->height);
     image->data = malloc(binarysize);
     printf("Der String '%s'\n", fgets(bits, 2, stream));
+    char test[1];
+    fread(test[1], 1, 1, stream);
     fread(image->data, binarysize, 1, stream);
 
     #ifdef DEBUG
@@ -91,7 +93,7 @@ int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   //printf(" Hallo >>%s<<\n", hw);
   fwrite(hw, 1, sizeof(hw)-2 , targetStream);
   fwrite(maxval, 1, sizeof(maxval)-1, targetStream);
-  fwrite(img->data, 1, binarysize-1, targetStream);
+  fwrite(img->data, 1, binarysize, targetStream);
 
   /*
   fwrite(type,1,sizeof(type)-1,targetStream);

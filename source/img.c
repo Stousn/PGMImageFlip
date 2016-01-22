@@ -51,7 +51,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
     PbmImage* image = malloc (sizeof (PbmImage));
     strcpy(image->type, PBM_TYPE_P5); //set type
     sscanf(size, "%d %d", &image->height, &image->width); //set size of data
-    fgets(bits, 1, stream);
+    fgets(comments, 2, stream);
 
     //get bits
     fgets(bits, 500, stream);
@@ -92,7 +92,7 @@ int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   //printf(" Hallo >>%s<<\n", hw);
   fwrite(hw, 1, sizeof(hw)-2 , targetStream);
   fwrite(maxval, 1, sizeof(maxval)-1, targetStream);
-  fwrite(img->data-1, 1, binarysize, targetStream);
+  fwrite(img->data, 1, binarysize, targetStream);
 
   /*
   fwrite(type,1,sizeof(type)-1,targetStream);

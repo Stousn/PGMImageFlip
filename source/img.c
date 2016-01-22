@@ -58,7 +58,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
     //data allocation
     size_t binarysize = (image->width * image->height) + 1;
     image->data = malloc(binarysize);
-    printf("Der String '%s'\n", fgets(bits, 1, stream);
+    printf("Der String '%s'\n", fgets(bits, 1, stream));
     fread(image->data, binarysize, 1, stream);
 
     #ifdef DEBUG

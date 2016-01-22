@@ -1,0 +1,16 @@
+all: flip clean
+
+flip: img.o flip.o main.o
+	gcc source/main.o source/flip.o source/img.o -o binary/myflip
+
+main.o: source/main.c
+	gcc -Wall -std=c99 -c source/main.c
+
+flip.o: source/flip.c source/flip.h
+	gcc -Wall -std=c99 -c source/flip.c
+
+img.o: source/img.c source/img.h
+	gcc -Wall -std=c99 -c source/img.c
+
+clean:
+	rm -f source/*.o

@@ -1,0 +1,3 @@
+#define RET_FLIP_OK 0
+#define ARGC_INVALID_ARGUMENT 6
+#define ARGC_NO_SUCH_FILE 7

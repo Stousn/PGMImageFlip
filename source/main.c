@@ -45,7 +45,7 @@ int main(int argc, char const *argv[]) {
     }
 
     //Writing flipped image into output file
-    FILE* output = fopen(argv[2], "w+b");
+    FILE* output = fopen(argv[2], "w");
     error = pbm_image_write_to_stream(img, output);
     if(error != 0){
       perror("ERROR: Writing PBM image failed. Check Error code for further information\n");

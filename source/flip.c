@@ -4,7 +4,7 @@
 int pbm_image_flip(PbmImage* image){
   int status = RET_PBM_ERROR;
 
-  size_t count =  (image->height * image->width) +1;
+  size_t count =  (image->height * image->width);
 
   //(c) Gerhard Seuchter, Folien
     for(int i = 0; i <= count/2; i++){

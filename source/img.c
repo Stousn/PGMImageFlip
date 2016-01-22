@@ -56,7 +56,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
     fgets(bits, 500, stream);
 
     //data allocation
-    size_t binarysize = (image->width * image->height)+1;
+    size_t binarysize = (image->width * image->height);
     image->data = malloc(binarysize);
     //printf("Der String '%s'\n", fgets(bits, 2, stream));
     //char test[1];
@@ -78,7 +78,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
 int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   int status = RET_PBM_ERROR;
   //sets vars for header
-  size_t binarysize = (img->width * img->height) + 1;
+  size_t binarysize = (img->width * img->height);
   char hw[10];//sizeof(img->height) + sizeof(img->width) + sizeof(char)*2];
   char type[4];
   char comments[24] = "#by Stefan Reip, ITM14!\n";
@@ -93,7 +93,7 @@ int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   //printf(" Hallo >>%s<<\n", hw);
   fwrite(hw, 1, sizeof(hw)-2 , targetStream);
   fwrite(maxval, 1, sizeof(maxval)-1, targetStream);
-  fwrite(img->data+1, 1, img->width * img->height, targetStream);
+  fwrite(img->data+1, 1, binarysize, targetStream);
 
   /*
   fwrite(type,1,sizeof(type)-1,targetStream);

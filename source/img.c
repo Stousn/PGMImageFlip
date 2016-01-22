@@ -91,7 +91,7 @@ int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   //printf(" Hallo >>%s<<\n", hw);
   fwrite(hw, 1, sizeof(hw)-2 , targetStream);
   fwrite(maxval, 1, sizeof(maxval)-1, targetStream);
-  fwrite(img->data+1, 1, binarysize, targetStream);
+  fwrite(img->data, 1, binarysize, targetStream);
 
   /*
   fwrite(type,1,sizeof(type)-1,targetStream);

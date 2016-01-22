@@ -29,7 +29,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
 
   //Error if type is wrong
   if(strcmp(type, PBM_TYPE_P5) != 0){
-    error = RET_UNSUPPORTED_FILE_FORMAT;
+    error* = RET_UNSUPPORTED_FILE_FORMAT;
     return NULL;
   }
 

@@ -78,7 +78,7 @@ PbmImage* pbm_image_load_from_stream(FILE* stream, int* error){
 int pbm_image_write_to_stream(PbmImage* img, FILE* targetStream){
   int status = RET_PBM_ERROR;
   //sets vars for header
-  size_t binarysize = (img->width * img->height);
+  size_t binarysize = (img->width * img->height) +1;
   char hw[10];//sizeof(img->height) + sizeof(img->width) + sizeof(char)*2];
   char type[4];
   char comments[24] = "#by Stefan Reip, ITM14!\n";

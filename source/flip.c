@@ -7,7 +7,7 @@ int pbm_image_flip(PbmImage* image){
   size_t count =  (image->height * image->width);
 
   //(c) Gerhard Seuchter, Folien
-    for(int i = 0; i < count/2; i++){
+    for(int i = 0; i <= count/2; i++){
 		char tmp = image->data[i];
 		image->data[i] = image->data[count - 2 - i];
 		image->data[count - 2 - i] = tmp;

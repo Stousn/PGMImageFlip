@@ -12,10 +12,11 @@
 int main(int argc, char const *argv[]) {
   //Variables
   PbmImage* img;
+  int error;
 
   //Checks if the amount of given arguments is correct
   if (argc == 3){
-    int error = RET_FLIP_OK;
+    error = RET_FLIP_OK;
     int* errorp = &error;
 
     //Trys to open input file

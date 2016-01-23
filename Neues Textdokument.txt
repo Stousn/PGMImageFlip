@@ -1,1 +1,0 @@
-flip.exe ../data/simple_sample.pgm ../data/simple_sample_flip.pgm

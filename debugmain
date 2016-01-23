@@ -1,1 +1,0 @@
-gcc -Wall -DDEBUG -std=c99 source/main.c -o binary/flip.exe

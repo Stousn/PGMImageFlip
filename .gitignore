@@ -30,3 +30,15 @@
 
 # Debug files
 *.dSYM/
+
+# Compressed Objects
+*.zip
+
+# Test Images
+*.pgm
+
+# Text Files
+*.txt
+
+# PDFs
+*.pdf
